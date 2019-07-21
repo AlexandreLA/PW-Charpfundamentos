@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class AcessoDados
+    public class AcessoDados
     {
         #region CamposPrivados
         private StreamWriter streamWhiter;
@@ -48,10 +48,7 @@ namespace Data
             {
                 string linha = streamReader.ReadLine();
                 linhas.Add(linha);
-
-
-                
-                Pessoa pessoa = new Pessoa();
+               
                 
             }
             streamReader.Close();
@@ -59,6 +56,34 @@ namespace Data
             return linhas;
 
 
+        }
+
+            public void Deletar(string nome)
+            {
+                List<string> linhas = Ler();
+                List<string> linhas2 = new List<string>();
+
+                foreach (var item in linhas)
+                {
+                    if (!item.Contains(nome))
+                    {
+                        linhas2.Add(item);
+                    }
+                }
+
+                GravarDelete(linhas2);
+
+            }
+
+        private void GravarDelete(List<string> linhas)
+        {
+            System.IO.File.Delete(caminhoArquivo + nomeArquivo);
+            streamWhiter = File.AppendText(caminhoArquivo + nomeArquivo);
+            foreach (var item in linhas)
+            {
+                streamWhiter.WriteLine(item);
+            }
+            streamWhiter.Close();
         }
         #endregion
     }
