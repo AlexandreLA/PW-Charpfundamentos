@@ -1,5 +1,5 @@
-﻿using Data;
-using Dominio;
+﻿using Dominio;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,7 @@ namespace aula01
         static void Main(string[] args)
         {
             Pessoa pessoa = new Pessoa();
+            PessoaService ps = new PessoaService();
             
             Console.WriteLine("Lista de Alunos");
 
@@ -23,9 +24,9 @@ namespace aula01
             Console.WriteLine("Digite o telefone: ");
             pessoa.NumeroTelefone = Console.ReadLine();
 
-            pessoa.Gravar();
+            ps.Gravar(pessoa);
 
-            List<Pessoa> pessoas = pessoa.Ler();
+            List<Pessoa> pessoas = ps.Ler();
             Console.WriteLine("***** Lista Pessoas *****");
             foreach (var p in pessoas)
             {

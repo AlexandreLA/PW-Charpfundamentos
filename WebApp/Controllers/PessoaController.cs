@@ -1,5 +1,5 @@
-﻿using Data;
-using Dominio;
+﻿using Dominio;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,8 @@ namespace WebApp.Controllers
 {
     public class PessoaController : Controller
     {
-        
+        PessoaService ps = new PessoaService();
+
         public ActionResult Index()
         {
             return View();
@@ -23,14 +24,15 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Create(Pessoa model)
         {
-            model.Gravar();
+
+            ps.Gravar(model);
             ModelState.Clear();
             return View();
         }
         public ActionResult List()
         {
             Pessoa pessoa = new Pessoa();
-            List<Pessoa> pessoas = pessoa.Ler();
+            List<Pessoa> pessoas = ps.Ler();
 
             return View(pessoas);
         }
@@ -38,7 +40,7 @@ namespace WebApp.Controllers
         public ActionResult Delete(string nome)
         {
             Pessoa model = new Pessoa();
-            model.Deletar(nome);
+            ps.Deletar(nome);
             return RedirectToAction("List");
         }
     }
