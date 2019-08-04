@@ -58,8 +58,9 @@ namespace Service
             {
                 string[] pessoaLinha = linha.Split('-');
                 Pessoa pessoa = new Pessoa();
-                pessoa.Nome = pessoaLinha[0];
-                pessoa.NumeroTelefone = pessoaLinha[1];
+                pessoa.Id = Convert.ToInt32( pessoaLinha[0] );
+                pessoa.Nome = pessoaLinha[1];
+                pessoa.Contatos.NumeroTelefone = pessoaLinha[2];
                 pessoas.Add(pessoa);
             }
             return pessoas;

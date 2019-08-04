@@ -35,12 +35,15 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.dgvPessoas = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(162, 107);
+            this.btnSalvar.Location = new System.Drawing.Point(94, 100);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 0;
@@ -50,7 +53,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(262, 107);
+            this.btnLimpar.Location = new System.Drawing.Point(194, 100);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 1;
@@ -60,14 +63,14 @@
             // 
             // txbNome
             // 
-            this.txbNome.Location = new System.Drawing.Point(162, 55);
+            this.txbNome.Location = new System.Drawing.Point(94, 44);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(175, 20);
             this.txbNome.TabIndex = 2;
             // 
             // txbTelefone
             // 
-            this.txbTelefone.Location = new System.Drawing.Point(162, 81);
+            this.txbTelefone.Location = new System.Drawing.Point(94, 74);
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(175, 20);
             this.txbTelefone.TabIndex = 3;
@@ -75,7 +78,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(102, 58);
+            this.lblNome.Location = new System.Drawing.Point(23, 44);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(35, 13);
             this.lblNome.TabIndex = 4;
@@ -84,7 +87,7 @@
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(102, 88);
+            this.lblTelefone.Location = new System.Drawing.Point(23, 81);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(49, 13);
             this.lblTelefone.TabIndex = 5;
@@ -93,10 +96,29 @@
             // dgvPessoas
             // 
             this.dgvPessoas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPessoas.Location = new System.Drawing.Point(314, 193);
+            this.dgvPessoas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Nome,
+            this.Telefone});
+            this.dgvPessoas.Location = new System.Drawing.Point(275, 44);
             this.dgvPessoas.Name = "dgvPessoas";
-            this.dgvPessoas.Size = new System.Drawing.Size(406, 218);
+            this.dgvPessoas.Size = new System.Drawing.Size(513, 367);
             this.dgvPessoas.TabIndex = 6;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            // 
+            // Telefone
+            // 
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
             // 
             // Form1
             // 
@@ -127,6 +149,9 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.DataGridView dgvPessoas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
     }
 }
 

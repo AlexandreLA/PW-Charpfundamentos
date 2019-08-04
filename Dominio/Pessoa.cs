@@ -1,27 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Pessoa
+    public class Pessoa : EntidadeBase
     {
-
-      
-        #region Propriedades
-        public string Nome { get; set; }
-            public string NumeroTelefone { get; set; }
-            #endregion
-            #region Metodos
-
-                public string DadosPessoa()
-                {
-                    string pessoaDados = Nome + "-" + NumeroTelefone;
-
-                    return pessoaDados;
-                }
-                 #endregion
+        public Pessoa()
+        {
+            Endereco = new Endereco();
+            Contatos = new Contatos();
         }
+
+        #region Propriedades
+
+        public string Nome { get; set; }
+
+        public Endereco Endereco { get; set; }
+
+        public Contatos Contatos { get; set; }
+
+
+        public object Contato { get; set; }
+
+        #endregion
+        #region Metodos
+
+        public string DadosPessoa()
+        {
+            string pessoaDados = $"{ Id}-{ Nome}-{ Contatos.NumeroTelefone}-{ Contatos.Skype}-{ Endereco.Cidade}-{ Endereco.Numero}";
+
+            return pessoaDados;
+        }
+        #endregion
+    }
 }

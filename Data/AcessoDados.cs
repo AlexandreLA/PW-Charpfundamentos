@@ -41,7 +41,6 @@ namespace Data
         public List<string> Ler()
         {
             List<string> linhas = new List<string>();
-;
 
             streamReader = File.OpenText(caminhoArquivo + nomeArquivo);
             while (streamReader.EndOfStream != true)

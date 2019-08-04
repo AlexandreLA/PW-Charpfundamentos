@@ -22,7 +22,7 @@ namespace aula01
             pessoa.Nome = Console.ReadLine();
 
             Console.WriteLine("Digite o telefone: ");
-            pessoa.NumeroTelefone = Console.ReadLine();
+            pessoa.Contatos.NumeroTelefone = Console.ReadLine();
 
             ps.Gravar(pessoa);
 
@@ -30,7 +30,7 @@ namespace aula01
             Console.WriteLine("***** Lista Pessoas *****");
             foreach (var p in pessoas)
             {
-                Console.WriteLine("Nome: " + p.Nome + " - " + p.NumeroTelefone);
+                Console.WriteLine("Nome: " + p.Nome + " - " + p.Contatos.NumeroTelefone);
             }
 
             Console.ReadLine();
