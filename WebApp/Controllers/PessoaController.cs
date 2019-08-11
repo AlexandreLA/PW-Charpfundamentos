@@ -37,10 +37,10 @@ namespace WebApp.Controllers
             return View(pessoas);
         }
 
-        public ActionResult Delete(string nome)
+        public ActionResult Delete(int id)
         {
             Pessoa model = new Pessoa();
-            ps.Deletar(nome);
+            ps.Deletar(id);
             return RedirectToAction("List");
         }
     }

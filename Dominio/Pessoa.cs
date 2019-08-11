@@ -24,8 +24,6 @@ namespace Dominio
         public Contatos Contatos { get; set; }
 
 
-        public object Contato { get; set; }
-
         #endregion
         #region Metodos
 

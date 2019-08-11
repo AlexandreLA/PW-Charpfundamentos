@@ -10,9 +10,13 @@ namespace Data.Contexto
 {
     public class ContextoProway : DbContext
     {
-        public DbSet<Pessoa> Pessoa { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
-        public ContextoProway():base("server=mysql.topskills.study;user id=topskills03;database=topskills03; Password=Alexandre2019; persistsecurityinfo=True")
+        public DbSet<Contatos> Contatos { get; set; }
+
+        public DbSet<Pessoa> Pessoas { get; set; }
+
+        public ContextoProway():base(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\65946\Documents\Prowaycsharp\PW-Charpfundamentos\Data\DbLocal\Database.mdf;Integrated Security=True")
         {
 
         }

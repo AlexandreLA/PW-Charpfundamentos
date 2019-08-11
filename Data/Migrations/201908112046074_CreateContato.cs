@@ -3,17 +3,19 @@ namespace Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreatePessoa : DbMigration
+    public partial class CreateContato : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Pessoas",
+                "dbo.Contatos",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
                         NumeroTelefone = c.String(),
+                        NumeroTelefoneResidencal = c.String(),
+                        EMail = c.String(),
+                        Skype = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -21,7 +23,7 @@ namespace Data.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Pessoas");
+            DropTable("dbo.Contatos");
         }
     }
 }

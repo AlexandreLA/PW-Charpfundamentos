@@ -25,16 +25,35 @@ namespace WindowsFormsApp
 
         private void CarregarPessoas()
         {
+            dgvPessoas.Rows.Clear();
             List<Pessoa> pessoas = new List<Pessoa>();
             pessoas = ps.Ler();
+
             foreach (var item in pessoas)
             {
-                DataGridViewRow row = new DataGridViewRow();
+                string[] row = new string[3];
+                row[0] = item.Id.ToString();
+                row[1] = item.Nome;
+                row[2] = item.Contatos.NumeroTelefone;
 
                 dgvPessoas.Rows.Add(row);
             }
+            if (dgvPessoas.Columns.Count==3)
+            {
+                dgvPessoas.Columns.Add ( addBntExcluir() );
+            }
         }
 
+        private DataGridViewButtonColumn addBntExcluir()
+        {
+            DataGridViewButtonColumn colBtn = new DataGridViewButtonColumn();
+            colBtn.HeaderText = "";
+            colBtn.Text = "Excluir";
+            colBtn.Name = "btnExcluir";
+            colBtn.UseColumnTextForButtonValue = true;
+            return colBtn;
+        }
+        
         private void LimparForm()
         {
             txbTelefone.Text = string.Empty;
@@ -53,6 +72,18 @@ namespace WindowsFormsApp
             ps.Gravar(p);
             LimparForm();
             CarregarPessoas();
+        }
+
+        private void DgvPessoas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.ColumnIndex;
+            if (index == 3)
+            { 
+                int indexLinha = e.RowIndex;
+                int id = Convert.ToInt32 (dgvPessoas.Rows[indexLinha].Cells[0].Value);
+                ps.Deletar(id);
+                CarregarPessoas();
+            }
         }
     }
 }

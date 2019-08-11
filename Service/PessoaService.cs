@@ -20,21 +20,36 @@ namespace Service
             acessoDados = new AcessoDados(nomeArquivo);
         }
 
+        //public void Gravar(Pessoa p)
+        //{
+        //    SalvarEmArquivo(p);
+        //}
+
         public void Gravar(Pessoa p)
         {
-            SalvarEmArquivo(p);
+            new AcessoDB().Create(p);
         }
+
+        //public List<Pessoa> Ler()
+        //{
+        //    List<Pessoa> pessoas = new List<Pessoa>();
+        //    pessoas = LerEmArquivo();
+        //    return pessoas;
+        //}
 
         public List<Pessoa> Ler()
         {
-            List<Pessoa> pessoas = new List<Pessoa>();
-            pessoas = LerEmArquivo();
-            return pessoas;
+            return new AcessoDB().LerTodos();
         }
 
-        public void Deletar(string nome)
+        //public void Deletar(string nome)
+        //{
+        //    DeletarEmArquivo(nome);
+        //}
+
+        public void Deletar(int id)
         {
-            DeletarEmArquivo(nome);
+            new AcessoDB().Delete(id);
         }
 
         //========== Operação em arquivo na rede
